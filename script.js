@@ -28,48 +28,63 @@ const monsterCreator = () => {
   const getDragonStats = () => console.log(`Dragon 💙:${dragon[1]}, Dragon 💨:${dragon[2]}`);
   const getWitchStats = () => console.log(`Witch 💜:${witch[1]}, Witch 💨:${witch[2]}`);
 
-  //Setters
+  
+  
+  //SETTERS
+  //Dragon getting DMG-d
   const setDragonReceivingDMG = function(){
       if (dragon[1] >= 2) {
       dragon[1] = dragon[1] - dmg
       console.log('💥 Dragon is attacked! (-1 HP)');
       } 
       else {
-      console.log("🚨 Previs si ranjen, ne mozes da napadas.");
+      console.log("🚨 Your HP is too low, you cant attack.");
     }
     return console.log(`Dragon 💙:${dragon[1]}, Dragon 💨:${dragon[2]}`);
   };
 
+  //Witch getting DMG-d
   const setWitchReceivingDMG = function(){
       if (witch[1] >= 2) {
-        dragon[1] = witch[1] - dmg
+        witch[1] = witch[1] - dmg
         console.log('💥 Witch is attacked! (-1 HP)');
       } 
       else {
-        console.log("🚨 Previs si ranjen, ne mozes da napadas.");
+        console.log("🚨 Your HP is too low, you cant attack.");
       }
       return console.log(`Witch 💜:${witch[1]}, Witch 💨:${witch[2]}`);
       };
 
+  //Dragon flying boost
   const setDragonFlyingBoost = function() {
     dragon[2] = dragon[2] + speedBoost;
     console.log("Dragon got FLYING BOOST 🚀")
     return `Dragon 💙:${dragon[1]}, Dragon 💨:${dragon[2]}`;
   }
+
+  //Witch flying boost
   const setWitchFlyingBoost = function() {
     witch[2] = witch[2] + speedBoost;
     console.log("Witch got FLYING BOOST 🚀")
-    return `Witch 💜:${witch[1]}, Witch 💨:${witch[2]}`;
+    return console.log(`Witch 💜:${witch[1]}, Witch 💨:${witch[2]}`);
   }
-  const setDragonHealing = () => dragon[1] = 5;
-  const setWitchHealing = () => witch[1] = 5;
+
+  //Dragon healing
+  const setDragonHealing = function(){
+    dragon[1] = 5;
+    console.log(`Dragon used heal ❤️‍🩹`);
+    return console.log(`Dragon 💜:${dragon[1]}, Witch 💨:${dragon[2]}`);
+  } 
+
+  //Witch healing
+  const setWitchHealing = function(){
+    witch[1] = 5;
+    console.log(`Witch used heal ❤️‍🩹`);
+    return console.log(`Witch 💜:${witch[1]}, Witch 💨:${witch[2]}`);
+  } 
   
 
   return {monsterAttack, getDragon, getWitch, setDragonReceivingDMG, setWitchReceivingDMG, setDragonHealing, setWitchHealing, setDragonFlyingBoost, setWitchFlyingBoost, getDragonStats, getWitchStats};
 }
 const game = monsterCreator();
-
-game.getDragonStats();
-game.getWitchStats();
-game.setDragonReceivingDMG();
 
