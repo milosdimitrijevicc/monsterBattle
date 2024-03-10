@@ -42,6 +42,47 @@ dragon.monsterHeal();
 dragon.monsterFly();
 
 
+const message = function(message){
+  console.log(message);
+}
+
+//OBJEKAT--------------------->
+const witch = {
+  monsterName: 'Witch',
+  health: 5,
+  speed: 10,
+
+  getDragon(){
+    return message(`health: ${this.health} , speed: ${this.speed}`);
+  },
+
+  monsterAttack(){
+    if (this.health > 1) {
+      this.health = this.health - 1;
+      message(`Napad je uspešno izvršen.`);
+    } else {
+      message("Previše si slab, ne možeš napadati.");
+    }
+    return message(`health: ${this.health} , speed: ${this.speed}`);
+  },
+
+  monsterHeal(){
+    this.health = 5;
+    message(`Heal je uspesno aktiviran.`);
+    return message(`health: ${this.health} , speed: ${this.speed}`);
+  },
+
+  monsterFly(){
+    this.speed = this.speed + 5;
+    message(`Monster Fly je uspesno aktiviran.`)
+    return message(`health: ${this.health} , speed: ${this.speed}`);
+  }
+}
+//KRAJ OBJEKTA--------------->
+
+
+
+
 
 
 
